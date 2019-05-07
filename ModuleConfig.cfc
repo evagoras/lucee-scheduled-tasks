@@ -45,7 +45,7 @@ component {
 	// Module Properties
 	this.title 				= "Lucee Scheduled Tasks";
 	this.author 			= "Evagoras Charalambous";
-	this.webURL 			= "https://www.evagoras.com";
+	this.webURL 			= "https://github.com/evagoras/lucee-scheduled-tasks";
 	this.description 		= "A UI Bootstrap implementation of the Lucee Web Tasks";
 	this.version			= "1.0.0";
 	// If true, looks for views in the parent first, if not found, then in the module. Else vice-versa

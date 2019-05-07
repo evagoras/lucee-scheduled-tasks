@@ -12,7 +12,7 @@
     "description":"A front end user interface that mimica the server scheduled tasks.",
     "devDependencies":{},
     "documentation":"",
-    "homepage":"",
+    "homepage":"https://github.com/evagoras/lucee-scheduled-tasks",
     "ignore":[
         "**/.*",
         "/test/",
