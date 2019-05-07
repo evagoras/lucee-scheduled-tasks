@@ -1,18 +1,28 @@
 {
+    "name":"Lucee Scheduled Tasks",
+    "version":"1.0.0",
+    "slug":"lucee-scheduled-tasks",
+    "type":"modules",
     "author":"Evagoras Charalambous",
+    "homepage":"https://github.com/evagoras/lucee-scheduled-tasks",
+    "shortDescription":"A Bootstrap UI for the Server Scheduled Tasks",
+    "description":"A front end user interface that mimica the server scheduled tasks.",
+    "projectURL":"https://github.com/evagoras/lucee-scheduled-tasks",
+    "documentation":"",
     "bugs":"",
     "changelog":"",
     "contributors":[],
+    "repository":{
+        "type":"Git",
+        "URL":"https://github.com/evagoras/lucee-scheduled-tasks"
+    },
     "dependencies":{
         "cbmessagebox":"^3..0.2+41",
         "cbvalidation":"^1.4.1+69",
         "mementifier":"^1.5.0-snapshot",
         "qb":"^6.3.2"
     },
-    "description":"A front end user interface that mimica the server scheduled tasks.",
     "devDependencies":{},
-    "documentation":"",
-    "homepage":"https://github.com/evagoras/lucee-scheduled-tasks",
     "ignore":[
         "**/.*",
         "/test/",
@@ -33,16 +43,8 @@
         }
     ],
     "location":"",
-    "name":"Lucee Scheduled Tasks",
     "private":false,
-    "projectURL":"https://github.com/evagoras/lucee-scheduled-tasks",
-    "repository":{
-        "type":"Git",
-        "URL":"https://github.com/evagoras/lucee-scheduled-tasks"
-    },
     "scripts":{},
-    "shortDescription":"A Bootstrap UI for the Server Scheduled Tasks",
-    "slug":"lucee-scheduled-tasks",
     "testbox":{
         "bundles":"",
         "directory":"tests.specs",
@@ -61,7 +63,5 @@
         "verbose":true,
         "watchDelay":500,
         "watchPaths":"**.cfc"
-    },
-    "type":"modules",
-    "version":"1.0.0"
+    }
 }
