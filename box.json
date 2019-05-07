@@ -35,10 +35,10 @@
     "location":"",
     "name":"Lucee Scheduled Tasks",
     "private":false,
-    "projectURL":"",
+    "projectURL":"https://github.com/evagoras/lucee-scheduled-tasks",
     "repository":{
-        "type":"",
-        "URL":""
+        "type":"Git",
+        "URL":"https://github.com/evagoras/lucee-scheduled-tasks"
     },
     "scripts":{},
     "shortDescription":"A Bootstrap UI for the Server Scheduled Tasks",
