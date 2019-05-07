@@ -1,7 +1,7 @@
 {
     "name":"Lucee Scheduled Tasks",
     "version":"1.0.0",
-    "slug":"scheduledtasks",
+    "slug":"lucee-scheduled-tasks",
     "type":"modules",
     "author":"Evagoras Charalambous",
     "homepage":"https://github.com/evagoras/lucee-scheduled-tasks",
