@@ -1,7 +1,7 @@
 {
     "name":"Lucee Scheduled Tasks",
     "version":"1.0.0",
-    "slug":"lucee-scheduled-tasks",
+    "slug":"scheduledtasks",
     "type":"modules",
     "author":"Evagoras Charalambous",
     "homepage":"https://github.com/evagoras/lucee-scheduled-tasks",
@@ -16,18 +16,13 @@
         "type":"Git",
         "URL":"https://github.com/evagoras/lucee-scheduled-tasks"
     },
+    "devDependencies":{},
     "dependencies":{
         "cbmessagebox":"^3..0.2+41",
         "cbvalidation":"^1.4.1+69",
         "mementifier":"^1.5.0-snapshot",
         "qb":"^6.3.2"
     },
-    "devDependencies":{},
-    "ignore":[
-        "**/.*",
-        "/test/",
-        "/tests/"
-    ],
     "installPaths":{
         "cbmessagebox":"modules/cbmessagebox/",
         "cbvalidation":"modules/cbvalidation/",
@@ -35,6 +30,11 @@
         "qb":"modules/qb/"
     },
     "instructions":"",
+    "ignore":[
+        "**/.*",
+        "/test/",
+        "/tests/"
+    ],
     "keywords":[],
     "license":[
         {
