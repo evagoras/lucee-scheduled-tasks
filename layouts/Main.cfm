@@ -46,8 +46,8 @@
 	</div>
 
 	<footer class="border-top py-3 mt-5">
-		<div class="container">
-			<p class="float-right">
+		<div class="container" style="margin-right:0">
+			<p class="text-right">
 				<a href="#event.buildLink('')#?fwreinit"><i class="fas fa-sync-alt"></i> FW Reinit</a>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a href="##"><i class="fas fa-arrow-up"></i> Back to top</a>
