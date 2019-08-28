@@ -2,6 +2,7 @@ component {
 
 	property name="messagebox" inject="messagebox@cbmessagebox";
 	property name="tasksDao" inject="tasksDao@scheduledtasks";
+	// property name="tasksService" inject="tasksService@scheduledtasks";
 
 	function index(event, rc, prc) {
 		param rc.task = "";
@@ -56,6 +57,7 @@ component {
 		} else {
 			try {
 				tasksDao.update(bean.getMemento());
+				variables.messagebox.success( "<p>The task '" & bean.getTask() & "' has been successfully updated.</p>" );
 				relocate(event="scheduledtasks.home.index", queryString="task=#bean.getTask()#");
 			} catch (any e) {
 				savecontent variable="exceptionError" {

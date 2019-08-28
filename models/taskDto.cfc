@@ -1,5 +1,7 @@
 component accessors=true {
 
+	property name="tasksService" inject="tasksService@scheduledtasks";
+
 	property name="form_startdate_day";
 	property name="form_startdate_month";
 	property name="form_startdate_year";
@@ -41,6 +43,8 @@ component accessors=true {
 	property name="valid";
 	property name="paused";
 	property name="autodelete";
+	property name="unique";
+	property name="url_with_port";
 
 	this.constraints = {
 		task = {
@@ -79,6 +83,11 @@ component accessors=true {
 		variables.form_interval_seconds = "";
 		variables.form_mode = "";
 		variables.form_loggingfile = "";
+		variables.publish = false;
+		variables.resolveurl = false;
+		variables.unique = false;
+		variables.autodelete = false;
+		variables.valid = true;
 		return this;
 	}
 
@@ -230,7 +239,7 @@ component accessors=true {
 			"form_enddate_day", "form_enddate_month", "form_enddate_year",
 			"form_endtime_hour", "form_endtime_minute", "form_endtime_second",
 			"form_interval_hours", "form_interval_minutes", "form_interval_seconds",
-			"form_loggingfile"],
+			"form_loggingfile", "unique"],
 		defaultExcludes = [],
 		neverInclude = [],
 		defaults = {},
@@ -255,7 +264,8 @@ component accessors=true {
 				getEndTime().hour(), getEndTime().minute(), getEndTime().second());
 		memento.append({
 			"startDateTime" = startDateTime,
-			"endDateTime" = endDateTime
+			"endDateTime" = endDateTime,
+			"url_with_port" = tasksService.mergeURLAndPort( getUrl(), getPort() )
 		});
 		return memento;
 	}

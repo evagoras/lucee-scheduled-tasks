@@ -32,7 +32,7 @@ component singleton {
 			starttime = dto.starttime
 			url = dto.url
 			port = dto.port
-			publish = isBoolean(dto.publish) == true ? true : false
+			publish =dto.publish
 			enddate = dto.enddate
 			endtime = dto.endtime
 			interval = dto.interval
@@ -43,7 +43,9 @@ component singleton {
 			proxyport = dto.proxyport
 			proxyuser = dto.proxyuser
 			proxypassword = dto.proxypassword
-			resolveurl = dto.resolveurl;
+			resolveurl = dto.resolveurl
+			unique = dto.unique
+			autodelete = dto.autodelete;
 		if (dto.paused == true) {
 			schedule task = dto.task action="pause";
 		} else {

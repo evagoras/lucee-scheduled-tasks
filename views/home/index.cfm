@@ -28,9 +28,9 @@
 						<th>Status</th>
 						<th>Task Name</th>
 						<th>URL</th>
-						<th>Port</th>
 						<th>Start Time</th>
 						<th>End Time</th>
+						<th nowrap>Run Exclusive</th>
 						<th nowrap>Run Interval (sec)</th>
 						<th>Timeout</th>
 					</tr>
@@ -55,12 +55,12 @@
 								</cfif>
 							</td>
 							<td nowrap>#task.task#</td>
-							<td>#task.url#</td>
-							<td>#task.port#</td>
+							<td><a href="#task.url_with_port#" target="_blank">#task.url_with_port# <i class="fas fa-external-link-alt"></i></a></td>
 							<td>#dateTimeFormat(task.startDateTime, "yyyy-mm-dd h:nn:ss tt")#</td>
 							<td>#dateTimeFormat(task.endDateTime, "yyyy-mm-dd h:nn:ss tt")#</td>
-							<td align="center">#task.interval#</td>
-							<td align="center">#task.timeout#</td>
+							<td>#yesNoFormat( task.unique )#</td>
+							<td>#task.interval#</td>
+							<td>#task.timeout#</td>
 						</tr>
 					</cfloop>
 				</tbody>

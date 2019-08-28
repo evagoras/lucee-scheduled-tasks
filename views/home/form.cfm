@@ -58,6 +58,18 @@
 					</div>
 				</div>
 				<div class="form-group row">
+					<div class="col-2 text-right">Run Exclusive</div>
+					<div class="col-10">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" id="unique" name="unique" value="true"<cfif prc.task.unique eq true> checked</cfif>>
+							<label class="form-check-label" for="unique">
+								If set run the task only once at time. Every time a task is started, 
+								it will check if still a task from previous round is running, if so no new test is started.
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group row">
 					<label for="rows" class="col-2 col-form-label text-right">Password</label>
 					<div class="col-10">
 						<input type="text" class="form-control" id="password" aria-describedby="passwordHelp" name="password" value="#prc.task.password#">
@@ -110,12 +122,12 @@
 				<div class="form-group row">
 					<div class="col-2 text-right">Save to file</div>
 					<div class="col-10">
-					  <div class="form-check">
-						<input class="form-check-input" type="checkbox" id="publish" name="publish" value="true"<cfif prc.task.publish eq true> checked</cfif>>
-						<label class="form-check-label" for="publish">
-							Sets, whether the response of server will be stored in a file or not.
-						</label>
-					  </div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" id="publish" name="publish" value="true"<cfif prc.task.publish eq true> checked</cfif>>
+							<label class="form-check-label" for="publish">
+								Sets, whether the response of server will be stored in a file or not.
+							</label>
+						</div>
 					</div>
 				</div>
 				<div class="form-group row">
@@ -130,12 +142,12 @@
 				<div class="form-group row">
 					<div class="col-2 text-right">Resolve URL</div>
 					<div class="col-10">
-					  <div class="form-check">
-						<input class="form-check-input" type="checkbox" id="resolveurl" name="resolveurl" value="true"<cfif prc.task.resolveurl eq true> checked</cfif>>
-						<label class="form-check-label" for="resolveurl">
-							Translate relative URLs into absolute.
-						</label>
-					  </div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" id="resolveurl" name="resolveurl" value="true"<cfif prc.task.resolveurl eq true> checked</cfif>>
+							<label class="form-check-label" for="resolveurl">
+								Translate relative URLs into absolute.
+							</label>
+						</div>
 					</div>
 				</div>
 
@@ -358,12 +370,12 @@
 				<div class="form-group row">
 					<div class="col-2 text-right">Paused</div>
 					<div class="col-10">
-					  <div class="form-check">
-						<input class="form-check-input" type="checkbox" id="paused" name="paused" value="true"<cfif prc.task.paused eq true> checked</cfif>>
-						<label class="form-check-label" for="paused">
-							By setting this flag, the execution of the task will be paused.
-						</label>
-					  </div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" id="paused" name="paused" value="true"<cfif prc.task.paused eq true> checked</cfif>>
+							<label class="form-check-label" for="paused">
+								By setting this flag, the execution of the task will be paused.
+							</label>
+						</div>
 					</div>
 				</div>
 
