@@ -2,12 +2,10 @@ component {
 
 	property name="messagebox" inject="messagebox@cbmessagebox";
 	property name="tasksDao" inject="tasksDao@scheduledtasks";
-	// property name="tasksService" inject="tasksService@scheduledtasks";
 
 	function index(event, rc, prc) {
 		param rc.task = "";
 		schedule action="list" returnvariable="prc.serverTasks";
-		// dump(prc.serverTasks);
 		prc.tasks = [];
 		for (var task in prc.serverTasks) {
 			var bean = getInstance("taskDto@scheduledtasks");
@@ -72,7 +70,6 @@ component {
 			prc.task = bean.getMemento();
 			prc.now = dateTimeFormat(now(), "yyyy-mm-dd h:nn:ss tt")
 			event.setView("home/form");
-			// runEvent(event = "scheduledtasks:home.new", eventArguments = rc);
 		}
 	}
 
@@ -84,6 +81,14 @@ component {
 		}
 		var task = tasksDao.getByName(rc.task);
 		return {"paused": task.paused};
+	}
+
+	function delete( event, rc, prc ) {
+		param rc.task = "";
+		if ( rc.task.len() > 0 ) {
+			schedule task = rc.task action = "delete";
+		}
+		relocate( event = "scheduledtasks.home.index" );
 	}
 
 }
