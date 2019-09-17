@@ -189,7 +189,7 @@
 								<select class="form-control" id="startdate_month" name="form_startdate_month">
 									<option></option>
 									<cfloop from="1" to="12" index="month">
-										<option value="#month#"<cfif prc.task.form_startdate_month eq month> selected</cfif>>#month#</option>
+										<option value="#month#"<cfif prc.task.form_startdate_month eq month> selected</cfif>>#month# - #monthAsString( month )#</option>
 									</cfloop>
 								</select>
 							</div>
@@ -268,7 +268,7 @@
 								<select class="form-control" id="enddate_month" name="form_enddate_month">
 									<option></option>
 									<cfloop from="1" to="12" index="month">
-										<option value="#month#"<cfif prc.task.form_enddate_month eq month> selected</cfif>>#month#</option>
+										<option value="#month#"<cfif prc.task.form_enddate_month eq month> selected</cfif>>#month# - #monthAsString( month )#</option>
 									</cfloop>
 								</select>
 							</div>
