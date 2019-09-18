@@ -1,7 +1,7 @@
 # lucee-scheduled-tasks
-A front end user interface that manages the server scheduled tasks
+A front end user interface that manages the server scheduled tasks, copying the Lucee Administrator functionality.
 
-To use it with CommandBox, run the following within the context of a ColdBox site:
+To use it, first create a ColdBox site and then within CommandBox run the following command at the root of the site:
 ```
 install evagoras/lucee-scheduled-tasks
 ```
