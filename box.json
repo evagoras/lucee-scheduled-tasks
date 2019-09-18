@@ -6,7 +6,7 @@
     "author":"Evagoras Charalambous",
     "homepage":"https://github.com/evagoras/lucee-scheduled-tasks",
     "shortDescription":"A Bootstrap UI for the Server Scheduled Tasks",
-    "description":"A front end user interface that mimica the server scheduled tasks.",
+    "description":"A front end user interface that mimics the Lucee server admin scheduled tasks.",
     "projectURL":"https://github.com/evagoras/lucee-scheduled-tasks",
     "documentation":"",
     "bugs":"",
@@ -19,15 +19,13 @@
     "devDependencies":{},
     "dependencies":{
         "cbmessagebox":"^3..0.2+41",
-        "cbvalidation":"^1.4.1+69",
-        "mementifier":"^1.5.0-snapshot",
-        "qb":"^6.3.2"
+        "mementifier":"^1.9.0+59",
+        "cbvalidation":"^1.5.1+78"
     },
     "installPaths":{
         "cbmessagebox":"modules/cbmessagebox/",
-        "cbvalidation":"modules/cbvalidation/",
         "mementifier":"modules/mementifier/",
-        "qb":"modules/qb/"
+        "cbvalidation":"modules/cbvalidation/"
     },
     "instructions":"",
     "ignore":[

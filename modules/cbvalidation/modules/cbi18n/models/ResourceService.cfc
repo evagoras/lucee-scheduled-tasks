@@ -11,6 +11,8 @@ Inspired by Paul Hastings
 
 	<cfproperty name="log" 	inject="logbox:logger:{this}">
 
+	<cfset instance = {}>
+
 <!------------------------------------------- CONSTRUCTOR ------------------------------------------->
 
 	<cffunction name="init" access="public" returntype="ResourceService" hint="Constructor" output="false">
@@ -154,21 +156,21 @@ Inspired by Paul Hastings
 			// Check if resource does NOT exists?
 			if( NOT structKeyExists( thisBundle, arguments.resource ) ){
 
-				// if logging enable 
+				// if logging enable
 				if( instance.logUnknownTranslation ){
 					log.error( instance.unknownTranslation & " key: #arguments.resource#" );
 				}
 
 				// Check default and return if sent
-				if( structKeyExists( arguments, "default" ) ){ 
-					return arguments.default; 
+				if( structKeyExists( arguments, "default" ) ){
+					return arguments.default;
 				}
-				
+
 				// Check unknown translation setting
-				if( len( instance.unknownTranslation ) ){ 
-					return instance.unknownTranslation & " key: #arguments.resource#"; 
+				if( len( instance.unknownTranslation ) ){
+					return instance.unknownTranslation & " key: #arguments.resource#";
 				}
-				
+
 				// Else return nasty unknown string.
 				return "_UNKNOWNTRANSLATION_FOR_#arguments.resource#_";
 			}

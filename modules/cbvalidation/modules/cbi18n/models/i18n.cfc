@@ -14,6 +14,8 @@ www.ortussolutions.com
 	<cfproperty name="resourceService" 	inject="resourceService@cbi18n">
 	<cfproperty name="controller" 		inject="coldbox">
 
+	<cfset instance = {}>
+
 	<cffunction name="init" access="public" returntype="i18n" hint="Constructor" output="false">
 		<cfscript>
 			// Internal Java Objects

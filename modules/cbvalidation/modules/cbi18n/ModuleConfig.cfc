@@ -1,17 +1,17 @@
 /**
-*********************************************************************************
-* Copyright Since 2005 ColdBox Framework by Luis Majano and Ortus Solutions, Corp
-* www.ortussolutions.com
-********************************************************************************
-*/
+ *********************************************************************************
+ * Copyright Since 2005 ColdBox Framework by Luis Majano and Ortus Solutions, Corp
+ * www.ortussolutions.com
+ ********************************************************************************
+ */
 component {
 
 	// Module Properties
 	this.title 				= "cbi18n";
 	this.author 			= "Luis Majano";
-	this.webURL 			= "http://www.ortussolutions.com";
+	this.webURL 			= "https://www.ortussolutions.com";
 	this.description 		= "Gives i18n and localization capabilities to applications";
-	this.version			= "1.4.0+70";
+	this.version			= "1.5.0+77";
 	// If true, looks for views in the parent first, if not found, then in the module. Else vice-versa
 	this.viewParentLookup 	= true;
 	// If true, looks for layouts in the parent first, if not found, then in module. Else vice-versa
@@ -24,21 +24,23 @@ component {
 	this.cfmapping			= "cbi18n";
 
 	/**
-	* Configure Module
-	*/
+	 * Configure Module
+	 */
 	function configure(){
-		// Mixin our own methods on handlers, interceptors and views via the ColdBox UDF Library File setting
-		arrayAppend( controller.getSetting( "ApplicationHelper" ), "#moduleMapping#/models/Mixins.cfm" );
+		// cb4 style
+		arrayAppend( controller.getSetting( "ApplicationHelper" ), "#moduleMapping#/helpers/Mixins.cfm" );
 	}
 
 	/**
-	* Fired when the module is registered and activated.
-	*/
+	 * Fired when the module is registered and activated.
+	 */
 	function onLoad(){
 		parseParentSettings();
 
+		// Remap Resource Service if settings allow it
 		if( len( controller.getSetting( "customResourceService" ) ) ){
-			binder.map( "resourceService@cbi18n", true ).to( controller.getSetting( "customResourceService" ) );
+			binder.map( "resourceService@cbi18n", true )
+				.to( controller.getSetting( "customResourceService" ) );
 		}
 	}
 
@@ -49,7 +51,7 @@ component {
 		var appHelperArray 	= controller.getSetting( "ApplicationHelper" );
 		var mixinToRemove 	= "#moduleMapping#/models/Mixins.cfm";
 		var mixinIndex 		= arrayFindNoCase( appHelperArray, mixinToRemove );
-		
+
 		// If the mixin is in the array
 		if( mixinIndex ) {
 			// Remove it
@@ -60,18 +62,19 @@ component {
 	}
 
 	/**
-	* Listen when modules are activated to load their i18n capabilities
-	*/
-	function afterConfigurationLoad( event, interceptData ){
+	 * Listen when modules are activated to load their i18n capabilities
+	 */
+	function afterAspectsLoad( event, interceptData ){
 		var modules 			= controller.getSetting( "modules" );
 		var moduleService 		= controller.getModuleService();
 		var moduleConfigCache 	= moduleService.getModuleConfigCache();
+
 
 		for( var thisModule in modules ){
 			// get module config object
 			var oConfig = moduleConfigCache[ thisModule ];
 			// Get i18n Settings
-			var i18nSettings = oConfig.getPropertyMixin( "i18n", "variables", structnew() );
+			var i18nSettings = oConfig.getPropertyMixin( "i18n", "variables", {} );
 
 			// Verify it exists and use it, else ignore.
 			if( structCount( i18nSettings ) ){
@@ -112,7 +115,7 @@ component {
 					structAppend( controller.getSetting( "resourceBundles" ), modules[ thisModule ].i18n.resourceBundles, true );
 					flagi18n = true;
 				}
-				
+
 				if( flagi18n ){
 					controller.setSetting( "using_i18N", true );
 				}
@@ -131,7 +134,7 @@ component {
 	private function parseParentSettings(){
 		// Read parent application config
 		var oConfig 		= controller.getSetting( "ColdBoxConfig" );
-		var i18n 			= oConfig.getPropertyMixin( "i18N", "variables", structnew() );
+		var i18n 			= oConfig.getPropertyMixin( "i18N", "variables", {} );
 		var configStruct 	= controller.getConfigSettings();
 
 		// Defaults
@@ -141,8 +144,8 @@ component {
 		configStruct[ "unknownTranslation" ] 		= "";
 		configStruct[ "logUnknownTranslation" ] 	= false;
 		configStruct[ "using_i18N" ] 				= false;
-		configStruct[ "resourceBundles" ]			= structNew();
-		configStruct[ "RBundles" ]					= structNew();
+		configStruct[ "resourceBundles" ]			= {};
+		configStruct[ "RBundles" ]					= {};
 		configStruct[ "customResourceService" ]		= "";
 
 		// Check if empty
@@ -167,9 +170,11 @@ component {
 			if ( structKeyExists( i18n, "localeStorage" ) AND len( i18n.localeStorage ) ){
 				configStruct[ "localeStorage" ] = i18n.localeStorage;
 				if( NOT reFindNoCase( "^(session|cookie|client|request)$",configStruct[ "localeStorage" ]) ){
-					throw(message="Invalid local storage scope: #configStruct[ "localeStorage" ]#",
-			   			  detail="Valid scopes are session,client, cookie, or request",
-			   			  type="InvalidLocaleStorage" );
+					throw(
+						message="Invalid local storage scope: #configStruct[ "localeStorage" ]#",
+						detail="Valid scopes are session,client, cookie, or request",
+						type="InvalidLocaleStorage"
+					);
 				}
 			}
 
@@ -190,13 +195,12 @@ component {
 
 			//Check for custom ResourceService
 			if( structKeyExists( i18n, "customResourceService" ) AND len( i18n.customResourceService ) ){
-				configStruct[ "customResourceService" ] = i18n.customResourceService;	
+				configStruct[ "customResourceService" ] = i18n.customResourceService;
 			}
 
 			// set i18n being used
 			configStruct[ "using_i18N" ] = true;
 		}
 
-		return configStruct[ "using_i18N" ];
 	}
 }

@@ -61,8 +61,6 @@ component accessors=true {
 		}
 	}
 
-	// property name="ispopulated";
-
 	function init() {
 		variables.form_interval_frequency = "every";
 		variables.form_startdate_day = "";
@@ -146,17 +144,6 @@ component accessors=true {
 				month = startDateMonth,
 				day = startDateDay);
 		}
-		// if (
-		// 	(isNull(getform_startdate_day()) == false && getform_startdate_day().len() > 0)
-		// 	&& (isNull(getform_startdate_month()) == false && getform_startdate_month().len() > 0)
-		// 	&& (isNull(getform_startdate_year()) == false && getform_startdate_year().len() > 0)
-		// ) {
-		// 	variables.startdate = createDate(
-		// 		year = getform_startdate_year(),
-		// 		month = getform_startdate_month(),
-		// 		day = getform_startdate_day());
-		// }
-
 		var startTimeHour = getform_starttime_hour().len() > 0 ? getform_starttime_hour() : 0;
 		var startTimeMinute = getform_starttime_minute().len() > 0 ? getform_starttime_minute() : 0;
 		var startTimeSecond = getform_starttime_second().len() > 0 ? getform_starttime_second() : 0;
@@ -166,17 +153,6 @@ component accessors=true {
 				minute = startTimeMinute,
 				second = startTimeSecond);
 		}
-		// if (
-		// 	(isNull(getform_starttime_hour()) == false && getform_starttime_hour().len() > 0)
-		// 	&& (isNull(getform_starttime_minute()) == false && getform_starttime_minute().len() > 0)
-		// 	&& (isNull(getform_starttime_second()) == false && getform_starttime_second().len() > 0)
-		// ) {
-		// 	variables.starttime = createTime(
-		// 		hour = getform_starttime_hour(),
-		// 		minute = getform_starttime_minute(),
-		// 		second = getform_starttime_second());
-		// }
-
 		var endDateYear = getform_enddate_year().len() > 0 ? getform_enddate_year() : 0;
 		var endDateMonth = getform_enddate_month().len() > 0 ? getform_enddate_month() : 0;
 		var endDateDay = getform_enddate_day().len() > 0 ? getform_enddate_day() : 0;
@@ -186,17 +162,6 @@ component accessors=true {
 				month = endDateMonth,
 				day = endDateDay);
 		}
-		// if (
-		// 	(isNull(getform_enddate_day()) == false && getform_enddate_day().len() > 0)
-		// 	&& (isNull(getform_enddate_month()) == false && getform_enddate_month().len() > 0)
-		// 	&& (isNull(getform_enddate_year()) == false && getform_enddate_year().len() > 0)
-		// ) {
-		// 	variables.enddate = createDate(
-		// 		year = getform_enddate_year(),
-		// 		month = getform_enddate_month(),
-		// 		day = getform_enddate_day());
-		// }
-
 		var endTimeHour = getform_endtime_hour().len() > 0 ? getform_endtime_hour() : 0;
 		var endTimeMinute = getform_endtime_minute().len() > 0 ? getform_endtime_minute() : 0;
 		var endTimeSecond = getform_endtime_second().len() > 0 ? getform_endtime_second() : 0;
@@ -206,22 +171,10 @@ component accessors=true {
 				minute = endTimeMinute,
 				second = endTimeSecond);
 		}
-		// if (
-		// 	(isNull(getform_endtime_hour()) == false && getform_endtime_hour().len() > 0)
-		// 	&& (isNull(getform_endtime_minute()) == false && getform_endtime_minute().len() > 0)
-		// 	&& (isNull(getform_endtime_second()) == false && getform_endtime_second().len() > 0)
-		// ) {
-		// 	variables.endtime = createTime(
-		// 		hour = getform_endtime_hour(),
-		// 		minute = getform_endtime_minute(),
-		// 		second = getform_endtime_second());
-		// }
-
 		if (getform_loggingfile().len() > 0) {
 			variables.path = getDirectoryFromPath(getform_loggingfile());
 			variables.file = getFileFromPath(getform_loggingfile());
 		}
-
 		if (getform_interval_frequency() == "every") {
 			variables.interval = getform_interval_hours() * 3600 + getform_interval_minutes() * 60 + getform_interval_seconds();
 		} else {
