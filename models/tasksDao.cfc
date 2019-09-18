@@ -6,9 +6,9 @@ component singleton {
 		return tasks;
 	}
 
-	public any function getByName(required string name) {
+	public any function getByName( required string name ) {
 		var tasks = getAll();
-		var task = queryNew("");
+		var task = queryNew( "" );
 		task = queryExecute(
 			"select * from tasks where task=:taskName",
 			{
@@ -22,7 +22,7 @@ component singleton {
 		return task;
 	}
 
-	function update(required any dto) {
+	function update( required any dto ) {
 		schedule action="update"
 			operation = "HTTPRequest"
 			task = dto.task
@@ -46,10 +46,10 @@ component singleton {
 			resolveurl = dto.resolveurl
 			unique = dto.unique
 			autodelete = dto.autodelete;
-		if (dto.paused == true) {
-			schedule task = dto.task action="pause";
+		if ( dto.paused == true ) {
+			schedule task=dto.task action="pause";
 		} else {
-			schedule task = dto.task action="resume";
+			schedule task=dto.task action="resume";
 		}
 	}
 

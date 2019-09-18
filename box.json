@@ -1,65 +1,61 @@
 {
-    "name":"Lucee Scheduled Tasks",
-    "version":"1.0.0",
-    "slug":"lucee-scheduled-tasks",
-    "type":"modules",
-    "author":"Evagoras Charalambous",
-    "homepage":"https://github.com/evagoras/lucee-scheduled-tasks",
-    "shortDescription":"A Bootstrap UI for the Server Scheduled Tasks",
-    "description":"A front end user interface that mimics the Lucee server admin scheduled tasks.",
-    "projectURL":"https://github.com/evagoras/lucee-scheduled-tasks",
-    "documentation":"",
-    "bugs":"",
-    "changelog":"",
-    "contributors":[],
-    "repository":{
-        "type":"Git",
-        "URL":"https://github.com/evagoras/lucee-scheduled-tasks"
-    },
-    "devDependencies":{},
-    "dependencies":{
-        "cbmessagebox":"^3..0.2+41",
-        "mementifier":"^1.9.0+59",
-        "cbvalidation":"^1.5.1+78"
-    },
-    "installPaths":{
-        "cbmessagebox":"modules/cbmessagebox/",
-        "mementifier":"modules/mementifier/",
-        "cbvalidation":"modules/cbvalidation/"
-    },
-    "instructions":"",
-    "ignore":[
-        "**/.*",
-        "/test/",
-        "/tests/"
-    ],
-    "keywords":[],
-    "license":[
-        {
-            "type":"",
-            "URL":""
-        }
-    ],
-    "location":"",
-    "private":false,
-    "scripts":{},
-    "testbox":{
-        "bundles":"",
-        "directory":"tests.specs",
-        "labels":"",
-        "options":{},
-        "recurse":true,
-        "reporter":"",
-        "runner":[
-            {
-                "default":""
-            }
-        ],
-        "testBundles":"",
-        "testSpecs":"",
-        "testSuites":"",
-        "verbose":true,
-        "watchDelay":500,
-        "watchPaths":"**.cfc"
+  "name": "Lucee Administrator Scheduled Tasks Bootstrap UI",
+  "version": "1.0.0",
+  "slug": "lucee-scheduled-tasks",
+  "type": "modules",
+  "author": "Evagoras Charalambous",
+  "homepage": "https://github.com/evagoras/lucee-scheduled-tasks",
+  "shortDescription": "A Bootstrap 4 UI frontend for the Lucee Administrator Server Scheduled Tasks",
+  "description": "A front end user interface that mimics the Lucee server admin scheduled tasks.",
+  "projectURL": "https://github.com/evagoras/lucee-scheduled-tasks",
+  "location": "evagoras/lucee-scheduled-tasks",
+  "documentation": "",
+  "bugs": "",
+  "changelog": "",
+  "contributors": [],
+  "repository": {
+    "type": "Git",
+    "URL": "https://github.com/evagoras/lucee-scheduled-tasks"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "cbmessagebox": "^3..0.2+41",
+    "mementifier": "^1.9.0+59",
+    "cbvalidation": "^1.5.1+78"
+  },
+  "installPaths": {
+    "cbmessagebox": "modules/cbmessagebox/",
+    "mementifier": "modules/mementifier/",
+    "cbvalidation": "modules/cbvalidation/"
+  },
+  "instructions": "",
+  "ignore": ["**/.*", "/test/", "/tests/"],
+  "keywords": [],
+  "license": [
+    {
+      "type": "",
+      "URL": ""
     }
+  ],
+  "private": false,
+  "scripts": {},
+  "testbox": {
+    "bundles": "",
+    "directory": "tests.specs",
+    "labels": "",
+    "options": {},
+    "recurse": true,
+    "reporter": "",
+    "runner": [
+      {
+        "default": ""
+      }
+    ],
+    "testBundles": "",
+    "testSpecs": "",
+    "testSuites": "",
+    "verbose": true,
+    "watchDelay": 500,
+    "watchPaths": "**.cfc"
+  }
 }

@@ -54,7 +54,7 @@ component accessors=true {
 	};
 
 	function requiredTask() {
-		if (isNull(arguments[1]) == true || arguments[1].len() == 0) {
+		if ( isNull(arguments[1]) == true || arguments[1].len() == 0 ) {
 			return false;
 		} else {
 			return true;
@@ -94,7 +94,7 @@ component accessors=true {
 	}
 
 	function populateFormProperties() {
-		if (isNumeric(getInterval()) == true) {
+		if ( isNumeric(getInterval() ) == true) {
 			variables.form_interval_frequency = "every";
 			var interval = getInterval();
 			variables.form_interval_hours = int(interval / 3600);
@@ -105,28 +105,28 @@ component accessors=true {
 		} else {
 			variables.form_interval_frequency = getInterval();
 		}
-		if (isDate(getstartdate()) == true) {
+		if ( isDate(getstartdate() ) == true) {
 			variables.form_startdate_day = getstartdate().day();
 			variables.form_startdate_month = getstartdate().month();
 			variables.form_startdate_year = getstartdate().year();
 		}
-		if (isDate(getstarttime()) == true) {
+		if ( isDate(getstarttime() ) == true) {
 			variables.form_starttime_hour = getstarttime().hour();
 			variables.form_starttime_minute = getstarttime().minute();
 			variables.form_starttime_second = getstarttime().second();
 		}
-		if (isDate(getenddate()) == true) {
+		if ( isDate(getenddate() ) == true) {
 			variables.form_enddate_day = getenddate().day();
 			variables.form_enddate_month = getenddate().month();
 			variables.form_enddate_year = getenddate().year();
 		}
-		if (isDate(getendtime()) == true) {
+		if ( isDate(getendtime() ) == true) {
 			variables.form_endtime_hour = getendtime().hour();
 			variables.form_endtime_minute = getendtime().minute();
 			variables.form_endtime_second = getendtime().second();
 		}
 		variables.form_loggingfile = getPath();
-		if (isNull(getFile()) == false && getFile().len() > 0) {
+		if ( isNull(getFile()) == false && getFile().len() > 0 ) {
 			if (variables.form_loggingfile.len() > 0) {
 				variables.form_loggingfile &= "\";
 			}
@@ -138,7 +138,7 @@ component accessors=true {
 		var startDateYear = getform_startdate_year().len() > 0 ? getform_startdate_year() : 0;
 		var startDateMonth = getform_startdate_month().len() > 0 ? getform_startdate_month() : 0;
 		var startDateDay = getform_startdate_day().len() > 0 ? getform_startdate_day() : 0;
-		if (startDateDay + startDateMonth + startDateYear > 0) {
+		if ( startDateDay + startDateMonth + startDateYear > 0 ) {
 			variables.startdate = createDate(
 				year = startDateYear,
 				month = startDateMonth,
@@ -147,7 +147,7 @@ component accessors=true {
 		var startTimeHour = getform_starttime_hour().len() > 0 ? getform_starttime_hour() : 0;
 		var startTimeMinute = getform_starttime_minute().len() > 0 ? getform_starttime_minute() : 0;
 		var startTimeSecond = getform_starttime_second().len() > 0 ? getform_starttime_second() : 0;
-		if (startTimeHour + startTimeMinute + startTimeSecond > 0) {
+		if ( startTimeHour + startTimeMinute + startTimeSecond > 0 ) {
 			variables.starttime = createTime(
 				hour = startTimeHour,
 				minute = startTimeMinute,
@@ -156,7 +156,7 @@ component accessors=true {
 		var endDateYear = getform_enddate_year().len() > 0 ? getform_enddate_year() : 0;
 		var endDateMonth = getform_enddate_month().len() > 0 ? getform_enddate_month() : 0;
 		var endDateDay = getform_enddate_day().len() > 0 ? getform_enddate_day() : 0;
-		if (endDateDay + endDateMonth + endDateYear > 0) {
+		if ( endDateDay + endDateMonth + endDateYear > 0 ) {
 			variables.enddate = createDate(
 				year = endDateYear,
 				month = endDateMonth,
@@ -165,17 +165,17 @@ component accessors=true {
 		var endTimeHour = getform_endtime_hour().len() > 0 ? getform_endtime_hour() : 0;
 		var endTimeMinute = getform_endtime_minute().len() > 0 ? getform_endtime_minute() : 0;
 		var endTimeSecond = getform_endtime_second().len() > 0 ? getform_endtime_second() : 0;
-		if (endTimeHour + endTimeMinute + endTimeSecond > 0) {
+		if ( endTimeHour + endTimeMinute + endTimeSecond > 0 ) {
 			variables.endtime = createTime(
 				hour = endTimeHour,
 				minute = endTimeMinute,
 				second = endTimeSecond);
 		}
-		if (getform_loggingfile().len() > 0) {
-			variables.path = getDirectoryFromPath(getform_loggingfile());
-			variables.file = getFileFromPath(getform_loggingfile());
+		if ( getform_loggingfile().len() > 0 ) {
+			variables.path = getDirectoryFromPath( getform_loggingfile() );
+			variables.file = getFileFromPath( getform_loggingfile() );
 		}
-		if (getform_interval_frequency() == "every") {
+		if ( getform_interval_frequency() == "every" ) {
 			variables.interval = getform_interval_hours() * 3600 + getform_interval_minutes() * 60 + getform_interval_seconds();
 		} else {
 			variables.interval = getform_interval_frequency();
@@ -206,8 +206,8 @@ component accessors=true {
 		struct defaults={},
 		boolean ignoreDefaults=false
 	){
-		var memento	= this.$getMemento(argumentCollection = arguments);
-		var startDateTime = isDate(getStartDate()) == false || isDate(getStartTime()) == false ? "" : 
+		var memento	= this.$getMemento( argumentCollection=arguments );
+		var startDateTime = isDate( getStartDate() ) == false || isDate( getStartTime() ) == false ? "" : 
 			createDateTime(
 				getStartDate().year(), getStartDate().month(), getStartDate().day(), 
 				getStartTime().hour(), getStartTime().minute(), getStartTime().second());
