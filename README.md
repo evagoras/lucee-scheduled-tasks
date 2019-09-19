@@ -1,12 +1,11 @@
 # Lucee Administrator Scheduled Tasks Bootstrap UI
-A front end user interface based on Bootstrap 4 and jQuery that manages the server scheduled tasks, 
-copying the Lucee Administrator functionality within a ColdBox app.
+This is a ColdBox module for creating a front-end user interface based on Bootstrap 4 and jQuery that manages the server scheduled tasks, copying the Lucee Administrator functionality within a ColdBox app.
 
-To use it, first create a ColdBox site and then within CommandBox run the following command at the root of the site:
+To use it, run the following command from CommandBox at the root of a ColdBox site:
 ```
 install evagoras/lucee-scheduled-tasks
 ```
-or if you are using the ForgeBox slug
+or if you are using the ForgeBox slug you can use this.
 ```
 install lucee-scheduled-tasks
 ```
