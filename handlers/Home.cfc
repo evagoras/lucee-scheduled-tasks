@@ -2,6 +2,7 @@ component {
 
 	property name="messagebox" inject="messagebox@cbmessagebox";
 	property name="tasksDao" inject="tasksDao@scheduledtasks";
+	property name="tasksService" inject="tasksService@scheduledtasks";
 
 	function index( event, rc, prc ) {
 		param rc.task = "";
@@ -16,7 +17,8 @@ component {
 
 	function edit( event, rc, prc ) {
 		param rc.form_mode = "edit";
-		var taskServer = tasksDao.getByName( rc.task );
+		var taskName = tasksService.getTaskNameByHash( rc.task );
+		var taskServer = tasksDao.getByName( taskName );
 		var bean = getInstance( "taskDto@scheduledtasks" );
 		populateModel( model=bean, qry=taskServer, ignoreEmpty=true );
 		bean.populateFormProperties();
@@ -76,17 +78,26 @@ component {
 	function togglePaused( event, rc, prc ) {
 		param rc.task = "";
 		param rc.action = "";
+		var taskPausedStatus = javacast( "null", 0 );
 		if ( rc.task.len() > 0 && rc.action.len() > 0 ) {
-			schedule task=rc.task action=rc.action;
+			var taskName = tasksService.getTaskNameByHash( rc.task );
+			if ( taskName.len() > 0 ) {
+				schedule task=taskName action=rc.action;
+				var task = tasksDao.getByName( taskName );
+				taskPausedStatus = task.paused;
+			}
 		}
-		var task = tasksDao.getByName( rc.task );
-		return { "paused": task.paused };
+		return { "paused": taskPausedStatus };
 	}
 
 	function delete( event, rc, prc ) {
 		param rc.task = "";
 		if ( rc.task.len() > 0 ) {
-			schedule task=rc.task action="delete";
+			var taskName = tasksService.getTaskNameByHash( rc.task );
+			if ( taskName.len() > 0 ) {
+				schedule task=taskName action="delete";
+				variables.messagebox.success( "<p>The task '" & taskName & "' has been successfully deleted.</p>" );
+			}
 		}
 		relocate( event="scheduledtasks.home.index" );
 	}

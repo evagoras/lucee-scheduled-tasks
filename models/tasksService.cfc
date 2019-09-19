@@ -1,5 +1,22 @@
 component singleton {
 
+	property name="tasksDao" inject="tasksDao@scheduledtasks";
+
+	function getTaskNameByHash( required string taskHash ) {
+		var taskName = "";
+		var tasks = tasksDao.getAll();
+		for ( var task in tasks ) {
+			if ( hash( task.task ) == taskHash ) {
+				taskName = task.task;
+				break;
+			}
+		}
+		return taskName;
+	}
+
+	/**
+	 * This function is copied from the Lucee project 
+	 */
 	function mergeURLAndPort( url, port ) {
 		rtn = url2Struct( arguments.url, arguments.port );
 		// loose default port
@@ -9,6 +26,9 @@ component singleton {
 		return rtn.protocol & rtn.domain & ":" & rtn.port & rtn.path;
 	}
 
+	/**
+	 * This function is copied from the Lucee project 
+	 */
 	function url2Struct( url, port ) {
 		rtn={};
 		// extract protocol 

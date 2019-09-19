@@ -47,13 +47,13 @@
 					<cfloop array="#prc.tasks#" index="task">
 						<tr<cfif task.task eq rc.task> class="table-success"</cfif>>
 							<td nowrap>
-								<a role="button" class="btn btn-sm btn-info" href="#event.buildLink('scheduledtasks.home.edit.task.#task.task#')#" data-toggle="tooltip" data-placement="top" title="Edit"><i class="far fa-edit"></i></a>
+								<a role="button" class="btn btn-sm btn-info" href="#event.buildLink('scheduledtasks.home.edit.task.#task.taskHash#')#" data-toggle="tooltip" data-placement="top" title="Edit"><i class="far fa-edit"></i></a>
 								<cfif task.paused eq true>
-									<a class="btn btn-danger btn-sm taskAction" data-action="resume" data-task="#task.task#" href="" role="button" data-toggle="tooltip" data-placement="top" title="Resume"><i class="fas fa-pause-circle"></i></a>
+									<a class="btn btn-danger btn-sm taskAction" data-action="resume" data-task="#task.taskHash#" href="" role="button" data-toggle="tooltip" data-placement="top" title="Resume"><i class="fas fa-pause-circle"></i></a>
 								<cfelse>
-									<a class="btn btn-success btn-sm taskAction" data-action="pause" data-task="#task.task#" href="" role="button" data-toggle="tooltip" data-placement="top" title="Pause"><i class="fas fa-play-circle"></i></a>
+									<a class="btn btn-success btn-sm taskAction" data-action="pause" data-task="#task.taskHash#" href="" role="button" data-toggle="tooltip" data-placement="top" title="Pause"><i class="fas fa-play-circle"></i></a>
 								</cfif> 
-								<a class="btn btn-danger btn-sm taskDelete" data-action="delete" data-task="#task.task#" href="" data-href="#event.buildLink('scheduledtasks.home.delete.task.#task.task#')#" role="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="far fa-trash-alt"></i></a>
+								<a class="btn btn-danger btn-sm taskDelete" data-action="delete" data-task="#task.taskHash#" href="" data-href="#event.buildLink('scheduledtasks.home.delete.task.#task.taskHash#')#" role="button" data-toggle="tooltip" data-placement="top" title="Delete"><i class="far fa-trash-alt"></i></a>
 							</td>
 							<td>
 								<cfif task.paused eq true>

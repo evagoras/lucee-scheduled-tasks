@@ -21,6 +21,7 @@ component accessors=true {
 	property name="form_mode";
 	property name="form_loggingfile";
 
+	property name="taskHash";
 	property name="task";
 	property name="path";
 	property name="file";
@@ -86,6 +87,7 @@ component accessors=true {
 		variables.unique = false;
 		variables.autodelete = false;
 		variables.valid = true;
+		variables.taskHash = "";
 		return this;
 	}
 
@@ -220,6 +222,7 @@ component accessors=true {
 			"endDateTime" = endDateTime,
 			"url_with_port" = tasksService.mergeURLAndPort( getUrl(), getPort() )
 		});
+		memento.append({ "taskHash" = hash( getTask() ) });
 		return memento;
 	}
 
