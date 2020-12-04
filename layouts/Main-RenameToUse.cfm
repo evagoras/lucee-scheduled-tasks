@@ -67,10 +67,6 @@
 		$('.dropdown-toggle').dropdown();
 		// Tooltips
 		$('[data-toggle="tooltip"]').tooltip();
-		// automatically close the alerts
-		// setTimeout(function() {
-		// 	$(".alert").alert('close');
-		// }, 10000);
 	})
 	</script>
 </body>

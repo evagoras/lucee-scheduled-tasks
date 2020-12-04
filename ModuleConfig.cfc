@@ -5,11 +5,11 @@ component {
 	this.author 			= "Evagoras Charalambous";
 	this.webURL 			= "https://github.com/evagoras/lucee-scheduled-tasks";
 	this.description 		= "A UI Bootstrap implementation of the Lucee Web Tasks";
-	this.version			= "1.0.0";
+	this.version			= "1.0.1";
 	// If true, looks for views in the parent first, if not found, then in the module. Else vice-versa
 	this.viewParentLookup 	= false;
 	// If true, looks for layouts in the parent first, if not found, then in module. Else vice-versa
-	this.layoutParentLookup = false;
+	this.layoutParentLookup = true;
 	// Module Entry Point
 	this.entryPoint			= "scheduledtasks";
 	// Inherit Entry Point
@@ -21,24 +21,9 @@ component {
 	// Auto-map models
 	this.autoMapModels		= true;
 	// Module Dependencies
-	this.dependencies 		= [];
+	this.dependencies 		= ["cbvalidation", "mementifier"];
 
-	function configure(){
-
-		// parent settings
-		parentSettings = {
-
-		};
-
-		// module settings - stored in modules.name.settings
-		settings = {
-
-		};
-
-		// Layout Settings
-		layoutSettings = {
-			defaultLayout = ""
-		};
+	function configure() {
 
 		// SES Routes
 		routes = [
@@ -46,20 +31,6 @@ component {
 			{ pattern="/", handler="home", action="index" },
 			// Convention Route
 			{ pattern="/:handler/:action?" }
-		];
-
-		// SES Resources
-		resources = [
-			// { resource = "" }
-		];
-
-		// Custom Declared Points
-		interceptorSettings = {
-			customInterceptionPoints = ""
-		};
-
-		// Custom Declared Interceptors
-		interceptors = [
 		];
 
 		mementifier = {
@@ -73,24 +44,7 @@ component {
 			// this module will create it with all properties and relationships it can find for the target entity
 			// leveraging the cborm module.
 			ormAutoIncludes = true
-		}
-
-		// Binder Mappings
-		// binder.map("Alias").to("#moduleMapping#.models.MyService");
-
-	}
-
-	/**
-	* Fired when the module is registered and activated.
-	*/
-	function onLoad(){
-
-	}
-
-	/**
-	* Fired when the module is unregistered and unloaded
-	*/
-	function onUnload(){
+		};
 
 	}
 
