@@ -1,5 +1,5 @@
 # Lucee Administrator Scheduled Tasks Bootstrap UI
-This is a ColdBox module for creating a front-end user interface based on Bootstrap 4 and jQuery that manages the server scheduled tasks, copying the Lucee Administrator functionality within a ColdBox app.
+This is a ColdBox module for creating a front-end user interface based on Bootstrap 4 and jQuery that manages the server scheduled tasks, copying the Lucee Administrator functionality but within a ColdBox app.
 
 ## Installation
 Run the following commands from CommandBox at the root of your ColdBox site.
