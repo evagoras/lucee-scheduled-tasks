@@ -21,7 +21,7 @@ component {
 	// Auto-map models
 	this.autoMapModels		= true;
 	// Module Dependencies
-	this.dependencies 		= ["cbvalidation", "mementifier"];
+	this.dependencies 		= ["cbvalidation", "mementifier", "cbmessagebox"];
 
 	function configure() {
 

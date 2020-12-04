@@ -15,7 +15,7 @@
   "contributors": [],
   "repository": {
     "type": "Git",
-    "URL": "https://github.com/evagoras/lucee-scheduled-tasks"
+    "URL": "https://github.com/evagoras/lucee-scheduled-tasks/tree/v1.0.1"
   },
   "devDependencies": {},
   "dependencies": {
